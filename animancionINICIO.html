@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentación de Imágenes</title>
+<style>
+    #slideshow {
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        margin: auto;
+        border: 1px solid #ccc;
+    }
+
+    #slideshow img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    #slideshow img.active {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+<div id="slideshow">
+    <img src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.0/h_411,c_limit/73300ab8-e29d-48d7-971c-012c85483422/air-max-dn-zapatillas-SBVfbL.png" class="active">
+    <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/282a91c4-4817-4b66-a568-e3eecdc55e0f/cortez-textile-zapatillas-ntjT79.png">
+    <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png">
+    <!-- Agrega más imágenes aquí según sea necesario -->
+</div>
+
+<script>
+    // Función para cambiar la imagen activa de forma aleatoria
+    function cambiarImagen() {
+        var imagenes = document.querySelectorAll('#slideshow img');
+        var imagenActual = document.querySelector('#slideshow img.active');
+
+        // Desactivar la imagen actual
+        imagenActual.classList.remove('active');
+
+        // Obtener un índice aleatorio para la nueva imagen
+        var indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+
+        // Activar la nueva imagen
+        imagenes[indiceAleatorio].classList.add('active');
+    }
+
+    // Cambiar la imagen cada 3 segundos (3000 milisegundos)
+    setInterval(cambiarImagen, 3000);
+</script>
+</body>
+</html>
